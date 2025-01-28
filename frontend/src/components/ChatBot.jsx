@@ -13,7 +13,7 @@ export default function Chatbot() {
     setUserInput("");
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/chat", { query: userInput });
+      const response = await axios.post("https://python-api-zgil.onrender.com/chat", { query: userInput });
       const botResponse = response.data.response;
       setMessages([...newMessages, { sender: "Bot", text: botResponse }]);
     } catch (error) {
