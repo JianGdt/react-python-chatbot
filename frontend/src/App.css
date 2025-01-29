@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+
+
+@theme {
+  --font-family-sans: "Geist", serif;
+}
+
+@font-face {
+  font-family: Geist;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("./assets/fonts/GeistMono-Black.ttf") format("ttf");
+}
+
+body {
+  font-family: var(--font-family-sans);
+  color: #212121;
+  transition: background-color 0.3s ease;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  font-weight: 200;
+  letter-spacing: 0.025em;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
