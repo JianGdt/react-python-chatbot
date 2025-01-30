@@ -3,7 +3,6 @@ import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import ChatBot from "./components/ChatBot";
 import SignInPage from "./pages/Sign-In/SignIn";
 import SignUpPage from "./pages/Sign-Up/SignUp";
-import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -17,9 +16,6 @@ function App() {
         </SignedOut>
 
         <SignedIn>
-          <div className="flex justify-between p-4 bg-gray-200">
-            <Navbar/>
-          </div>
           <Routes>
             <Route path="/" element={<ChatBot />} />
             <Route path="*" element={<Navigate to="/" />} />
