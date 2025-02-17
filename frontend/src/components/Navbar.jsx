@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <header className="flex justify-between p-4 bg-gray-200 w-full m-auto max-w-6xl">
         <nav className="flex max-w-6xl justify-between p-4 bg-gray-200 w-full">
-        <h1>BOSS! {user?.firstName || "User"}! 👋</h1>
+        <h1>BOSS, {user?.firstName || "User"}! 👋</h1>
         <div>
           <UserButton />
         </div>

@@ -30,7 +30,7 @@ def chat_with_bot(request: QueryRequest):
         response = model.generate_content(
             query,
             generation_config=genai.GenerationConfig(
-                max_output_tokens=75,
+                max_output_tokens=3000,
                 temperature=0.7
             )
         )
