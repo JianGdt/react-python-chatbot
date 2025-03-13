@@ -1,28 +1,32 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import { useContext } from "react";
 import ChatBot from "./components/ChatBot";
 import SignInPage from "./pages/Sign-In/SignIn";
 import SignUpPage from "./pages/Sign-Up/SignUp";
+import { AuthContext } from "./context/authContext.jsx";
 
 function App() {
-  return (
-    <>
-        <SignedOut>
-          <Routes>
-            <Route path="/sign-in" element={<SignInPage />} />
-            <Route path="/sign-up" element={<SignUpPage />} />
-            <Route path="*" element={<Navigate to="/sign-in" />} />
-          </Routes>
-        </SignedOut>
+  const { isAuthenticated } = useContext(AuthContext);
 
-        <SignedIn>
-          <Routes>
-            <Route path="/" element={<ChatBot />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-        </SignedIn>
-      </>
-  )
+
+
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={isAuthenticated ? <ChatBot /> : <Navigate to="/sign-in" />}
+      />
+      <Route
+        path="/sign-in"
+        element={!isAuthenticated ? <SignInPage /> : <Navigate to="/" />}
+      />
+      <Route
+        path="/sign-up"
+        element={!isAuthenticated ? <SignUpPage /> : <Navigate to="/" />}
+      />
+      <Route path="*" element={<Navigate to={isAuthenticated ? "/" : "/sign-in"} />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
