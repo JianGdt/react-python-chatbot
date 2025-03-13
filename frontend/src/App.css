@@ -3,7 +3,7 @@
 
 
 @theme {
-  --font-family-sans: "Geist", serif;
+  --font-family-sans: "Geist", sans-serif;
 }
 
 @font-face {
